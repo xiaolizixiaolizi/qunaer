@@ -16,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* 使用 <i class="iconfont icontuxing"></i> */
 .iconsousuo:before {
   content: "\e633";
 }
