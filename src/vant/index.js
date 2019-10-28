@@ -6,7 +6,7 @@ import {
   DatetimePicker, Collapse, CollapseItem,
   Grid, GridItem, Swipe, SwipeItem, Toast, Lazyload,
   Tabbar, TabbarItem
-  , Notify, Dialog
+  , Notify, Dialog,Loading
 
 } from 'vant'
 const vant = {
@@ -32,6 +32,7 @@ const vant = {
     Vue.use(Tabbar)
     Vue.use(TabbarItem)
     Vue.use(Search)
+    Vue.use(Loading)
 
     Vue.prototype.$toast = Toast
     Vue.prototype.$loading = Toast.loading
