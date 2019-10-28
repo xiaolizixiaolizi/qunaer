@@ -5,7 +5,7 @@ import {
   Checkbox, CheckboxGroup, Search,
   DatetimePicker, Collapse, CollapseItem,
   Grid, GridItem, Swipe, SwipeItem, Toast, Lazyload,
-  Tabbar, TabbarItem
+  Tabbar, TabbarItem 
   , Notify, Dialog,Loading
 
 } from 'vant'
