@@ -1,6 +1,8 @@
 <template>
   <div class="HomeIcon">
     <h3>HomeIcon</h3>
+    <h3>HomeIcon</h3>
+    <h3>HomeIcon</h3>
   </div>
 </template>
 
