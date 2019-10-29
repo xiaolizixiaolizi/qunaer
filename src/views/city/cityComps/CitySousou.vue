@@ -1,20 +1,13 @@
 <template>
-  <div class="city">
-    <city-header></city-header>
-    <city-sousou></city-sousou>
-
+  <div class="CitySousou">
+    <h3>CitySousou</h3>
   </div>
 </template>
 
 <script>
-import CityHeader from "./cityComps/CityHeader";
-import CitySousou from "./cityComps/CitySousou";
 export default {
-  name: "City",
-  components: {
-    CityHeader,
-    CitySousou
-  },
+  name: "CitySousou",
+  components: {},
   data() {
     return {};
   },
@@ -34,18 +27,6 @@ export default {
 </script>
 <style lang='stylus' scoped>
 
-
-
-
-
-
-
 //@import ; 引入公共css类
-
-
-
-
-
-
 
 </style>
