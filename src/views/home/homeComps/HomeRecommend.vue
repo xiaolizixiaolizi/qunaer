@@ -1,6 +1,21 @@
 <template>
   <div class="home-recommend">
-    <h3>HomeRecommend</h3>
+    <p class="recommend-title">热销推荐</p>
+    <ul v-if="recommendlist.length!==0" class="recommend-list">
+      <li
+        v-for="(item, index) in recommendlist"
+        :key="index.id"
+        class="border-bottom"
+        @click="goDetail(item.id)"
+      >
+        <img :src="item.imgUrl" alt class="recomend-img">
+        <div class="recommend-info">
+          <p class="recomend-title">{{item.title}}</p>
+          <p class="recommend-desc">{{item.desc}}</p>
+          <span class="recomend-detail">查看详情</span>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -8,50 +23,25 @@
 export default {
   name: "HomeRecommend",
   components: {},
+  props: {
+    recommendlist: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
   data() {
     return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg",
-          title: "故宫",
-          desc: "东方宫殿建筑代表，世界宫殿建筑典范"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg",
-          title: "南山滑雪场",
-          desc: "北京专业级滑雪圣地"
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg",
-          title: "天安门广场",
-          desc: "我爱北京天安门，天安门上太阳升"
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_140x140_1c863e5c.jpg",
-          title: "水立方",
-          desc: "中国的荣耀，阳光下的晶莹水滴"
-        },
-        {
-          id: "0005",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/p0/201308/23/b283071686e64dfec8d65eac.jpg_140x140_8c5a7c49.jpg",
-          title: "温都水城养生馆",
-          desc: "各种亚热带植物掩映其间仿佛置身热带雨林"
-        }
-      ]
     };
   },
   methods: {
     // *******************************网络请求*******************************
     // *******************************逻辑处理*******************************
+    goDetail(id) {
+      console.log(id);
+      this.$router.push({ name: "goodsDetail", params: { id } });
+    }
   },
   computed: {},
   watch: {},
@@ -64,51 +54,60 @@ export default {
 };
 </script>
 <style lang='stylus' scoped>
+.home-recommend {
+  .recommend-title {
+    font-size: 18px;
+    margin: 5px 0;
+    text-indent: 1em;
+    background: #eee;
+  }
 
+  .recommend-list {
+    li {
+      display: flex;
+      flex-flow: row nowrap;
+      padding-bottom: 3px;
 
+      img {
+        width: 85px;
+        margin-right: 10px;
+        border-radius: 8px;
+      }
 
+      .recommend-info {
+        flex: 1;
+        font-size: 14px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
 
+        .recomend-title {
+          color: #212121;
+          font-size: 16px;
+        }
 
+        .recommend-desc {
+          width: 280px;
+          color: #666;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
 
+        .recomend-detail {
+          align-self: flex-start;
+          padding: 4px;
+          background: $showDetail;
+          color: #fff;
+        }
+      }
+    }
+  }
 
-
-
-
-
-
-
-
-
-//@import ; 引入公共css类
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .demo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 </style>

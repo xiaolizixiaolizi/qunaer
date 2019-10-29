@@ -13,8 +13,8 @@
       />
     </div>
 
-    <div class="right">
-      城市
+    <div class="right" @click="goCity">
+      <span class="city">北京</span>
       <i class="iconfont iconjiantou"></i>
     </div>
   </div>
@@ -32,6 +32,9 @@ export default {
   methods: {
     // *******************************网络请求*******************************
     // *******************************逻辑处理*******************************
+    goCity() {
+      this.$router.push({ name: "city" });
+    },
     onBlur(value) {
       console.log(value);
     }

@@ -1,35 +1,25 @@
 <template>
-  <van-swipe :autoplay="3000" indicator-color="$bgColor" class="home-swipre" v-if="swiperlist.length!==0">
-    <van-swipe-item v-for="(image, index) in swiperlist" :key="index">
-      <van-image lazy-load :src="image.imgUrl" width="100%" height="100%">
-        <template v-slot:loading>
-          <van-loading type="spinner" size="20"/>
-        </template>
-      </van-image>
-    </van-swipe-item>
-  </van-swipe>
+  <div class="city-header">
+    <div class="city-header-left" @click="goHome">
+      <i class="iconfont iconjiantou-copy"></i>
+    </div>
+    <div class="city-header-main">城市选择</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "HomeSwipre",
-  props: {
-    swiperlist: {
-      type: Array,
-      default() {
-        return [];
-      }
-    }
-  },
+  name: "CityHeader",
   components: {},
   data() {
-    return {
-      
-    };
+    return {};
   },
   methods: {
     // *******************************网络请求*******************************
     // *******************************逻辑处理*******************************
+    goHome() {
+      this.$router.push({ name: "home" });
+    }
   },
   computed: {},
   watch: {},
@@ -42,8 +32,25 @@ export default {
 };
 </script>
 <style lang='stylus' scoped>
-.home-swipre {
-  height: 25.6vw;
-  background: #eee;
+// $bgColor = #00bcd4;
+.city-header {
+  height: 43px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  background: $bgColor;
+  text-align: center;
+  color: #fff;
+
+  .city-header-left {
+    padding-left: 8px;
+
+  }
+
+  .city-header-main {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+  }
 }
 </style>

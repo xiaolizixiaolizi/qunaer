@@ -1,30 +1,18 @@
 <template>
-  <div class="home-icon" >
-    <van-grid :column-num="4" square :border="false" v-if="iconlist.length!==0">
-      <van-grid-item v-for="item in iconlist " :key="item.id">
-        <van-image :src="item.imgUrl" class="icon-img"/>
-        <span class="desc">{{item.desc}}</span>
-      </van-grid-item>
-    </van-grid>
+  <div class="city">
+    <city-header></city-header>
   </div>
 </template>
 
 <script>
+import CityHeader from "./cityComps/CityHeader";
 export default {
-  name: "HomeIcon",
-  props: {
-    iconlist: {
-      type: Array,
-      default() {
-        return [];
-      }
-    }
+  name: "City",
+  components: {
+    CityHeader
   },
-  components: {},
   data() {
-    return {
-      
-    };
+    return {};
   },
   methods: {
     // *******************************网络请求*******************************
@@ -41,13 +29,19 @@ export default {
 };
 </script>
 <style lang='stylus' scoped>
-.home-icon {
-  .desc {
-    font-size: 14px;
-  }
 
-  .icon-img {
-    width: 70%;
-  }
-}
+
+
+
+
+
+
+//@import ; 引入公共css类
+
+
+
+
+
+
+
 </style>

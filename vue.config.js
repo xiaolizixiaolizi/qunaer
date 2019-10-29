@@ -17,7 +17,7 @@ module.exports = {
           pxtorem({
             rootValue: 37.5,
             propList: ['*'],
-           
+
           })
         ]
       }
@@ -38,30 +38,31 @@ module.exports = {
       }
     }
   },
-  devServer: {
-    open: true, //是否自动弹出浏览器页面
-    host: "localhost", 
-    port: '8081',
-    https: false,
-    hotOnly: false, 
-    proxy: {
-        '/api': {
-            target: 'https://touch.dujia.qunar.com/', //API服务器的地址
-            ws: true,  //代理websockets
-            changeOrigin: true, // 虚拟的站点需要更管origin
-            pathRewrite: {   //重写路径 比如'/api/aaa/ccc'重写为'/aaa/ccc'
-                '^/api': ''
-            }
-        }
-    },
-}
+
+  // devServer: {
+  //   open: true, //是否自动弹出浏览器页面
+  //   host: "localhost",
+  //   port: '8088',
+  //   https: false,
+  //   hotOnly: false,
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://localhost:8088', //API服务器的地址
+  //       ws: true,  //代理websockets
+  //       changeOrigin: true, // 虚拟的站点需要更管origin
+  //       pathRewrite: {   //重写路径 比如'/api/aaa/ccc'重写为'/aaa/ccc'
+  //         '^/api': '/public/mock14145/'
+  //       }
+  //     }
+  //   },
+  // }
 }
 function addStyleResource(rule) {
   rule.use('style-resource')
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname,'./src/assets/styles/global.styl')
+        path.resolve(__dirname, './src/assets/styles/global.styl')
       ],
     })
 }
