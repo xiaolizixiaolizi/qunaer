@@ -10,8 +10,9 @@ for (let key in MyFilter) {
 
 import moment from "moment"
 // import dateFormat from 'dateformat';
-import {dataFormat} from './utils'
-
+// import {dataFormat} from './utils'
+import utils from './utils'
+const { dataFormat } = utils
 const vFilter = {
   // 性别：F/0—>女，M/1—>男
   sexFormat(val) {
@@ -31,7 +32,7 @@ const vFilter = {
   },
 
   //金钱三位一逗号，小数点保留两位  6449649.65998==> 6,449,649.66
-  
+
 
   //    2019-09-18T13:48:56.133Z String类型和date时间Object类型都可以 转为2018-11-16 10:55:58
   dataFormat1(timeStr, pattern = 'YYYY-MM-DD HH:MM:SS') {
@@ -41,12 +42,12 @@ const vFilter = {
   // 把时间搓变为日期字符串 pattern千万不要变动 。
   //  <h3>{{1568814505764|dataFormat2}}</h3>  2019-48-18 21:09:25
   dataFormat2(value, pattern = 'yyyy-mm-dd hh:MM:ss') {
-    let date=new Date(value) //这一步是吧时间戳转日期对象
+    let date = new Date(value) //这一步是吧时间戳转日期对象
     // let date=new Date(value*1000) //时间戳是s 要转ms 都是有可能的 
     return dataFormat(date, pattern)
   },
 
-  
+
   // 首字母大写
   capitalize(val) {
     if (!val) return ''
@@ -83,16 +84,16 @@ const vFilter = {
     return (num * 100).toFixed(accuracy) + "%"
   },
   // 12000=>1.2万
-  toWan(val,acc=2){
-    let num=parseFloat(val)/10000
-    num=num%1==0?num:num.toFixed(acc) //整除原样输出。
+  toWan(val, acc = 2) {
+    let num = parseFloat(val) / 10000
+    num = num % 1 == 0 ? num : num.toFixed(acc) //整除原样输出。
     return `${num}万`
   },
   // true=>高 false=>低
-  toGaoDi(val){
-    return val?'高':'低'
+  toGaoDi(val) {
+    return val ? '高' : '低'
   }
- 
+
 }
 export default vFilter
 

@@ -1,19 +1,30 @@
 <template>
-  <div class="CitySousou">
-    <h3>CitySousou</h3>
+  <div class="city-sousou">
+    <van-search placeholder="请输入搜索关键词" v-model="value" background="$bgColor" @blur="onSearch"/>
   </div>
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 export default {
   name: "CitySousou",
   components: {},
   data() {
-    return {};
+    return {
+      value: ""
+    };
   },
   methods: {
     // *******************************网络请求*******************************
     // *******************************逻辑处理*******************************
+    ...mapMutations({
+      getWord:'getWord'
+    }),
+    onSearch() {
+      // 搜索组件改变store值
+      this.getWord({keyword:this.value})
+      // this.$store.commit("getWord", { keyword: this.value });
+    }
   },
   computed: {},
   watch: {},
@@ -26,7 +37,12 @@ export default {
 };
 </script>
 <style lang='stylus' scoped>
+// @import ; 引入公共css类city-sousou
+.city-sousou {
+  background: $bgColor;
 
-//@import ; 引入公共css类
-
+  .van-search {
+    padding-bottom: 3px;
+  }
+}
 </style>

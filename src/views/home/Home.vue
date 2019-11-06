@@ -19,7 +19,7 @@ import HomeIcon from "./homeComps/HomeIcon";
 import HomeRecommend from "./homeComps/HomeRecommend";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     VHeader,
     HomeSwipre,
@@ -36,10 +36,9 @@ export default {
   methods: {
     async _getHomeInfo() {
       let res = await getHomeInfo();
-      this.swiperList = res.data.swiperList;
-      this.recommendList = res.data.recommendList;
-      this.iconList = res.data.iconList;
-      
+      this.swiperList = res.swiperList;
+      this.recommendList = res.recommendList;
+      this.iconList = res.iconList;
     }
   },
   created() {

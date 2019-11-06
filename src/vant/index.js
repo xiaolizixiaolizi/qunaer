@@ -3,8 +3,8 @@ import {
   Button, Cell, CellGroup,
   Icon, Image, Row, Col,
   Checkbox, CheckboxGroup, Search,
-  DatetimePicker, Collapse, CollapseItem,
-  Grid, GridItem, Swipe, SwipeItem, Toast, Lazyload,
+  DatetimePicker, Collapse, CollapseItem,IndexBar, IndexAnchor,
+  Grid, GridItem, Swipe, SwipeItem, Toast, Lazyload,Sticky ,
   Tabbar, TabbarItem 
   , Notify, Dialog,Loading
 
@@ -16,6 +16,7 @@ const vant = {
     Vue.use(CellGroup)
     Vue.use(Icon)
     Vue.use(Image)
+    Vue.use(Sticky)
     Vue.use(Row)
     Vue.use(Col)
     Vue.use(Checkbox)
@@ -27,6 +28,8 @@ const vant = {
     Vue.use(GridItem)
     Vue.use(Swipe)
     Vue.use(SwipeItem)
+    Vue.use(IndexBar)
+    Vue.use(IndexAnchor)
     Vue.use(Toast)
     Vue.use(Lazyload)
     Vue.use(Tabbar)

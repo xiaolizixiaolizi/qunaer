@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="left">
+    <div class="left" @click="handleClick">
       <i class="iconfont iconjiantou-copy"></i>
     </div>
     <div class="sousou">
@@ -14,13 +14,14 @@
     </div>
 
     <div class="right" @click="goCity">
-      <span class="city">北京</span>
+      <span class="city">{{currentCity}}</span>
       <i class="iconfont iconjiantou"></i>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Header",
   components: {},
@@ -32,6 +33,10 @@ export default {
   methods: {
     // *******************************网络请求*******************************
     // *******************************逻辑处理*******************************
+    handleClick() {
+      //  返回上一个页面
+      this.$router.go(-1);
+    },
     goCity() {
       this.$router.push({ name: "city" });
     },
@@ -39,7 +44,11 @@ export default {
       console.log(value);
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      currentCity: "showCurrentCity"
+    })
+  },
   watch: {},
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -70,7 +79,8 @@ export default {
   }
 
   .right {
-    width: half(120);
+    // width: half(120);
+    margin: 0 10px;
     text-align: center;
 
     .iconjiantou {
